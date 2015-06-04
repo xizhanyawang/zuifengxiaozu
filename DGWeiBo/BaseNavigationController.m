@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 钟伟迪. All rights reserved.
 //
 
-#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #import "BaseNavigationController.h"
 
-@implementation BaseNavigationController
+@implementation BaseNavigationController{
+    UIView * _shadeView;
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
@@ -32,20 +32,34 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuSlider) name:MENU_SLIDER object:nil];
     
-    
-
+    self.view.layer.anchorPoint=CGPointMake(0, 0.5);
+    self.view.layer.position=CGPointMake(0, self.view.layer.position.y);
+    _shadeView=[[UIView alloc]initWithFrame:self.view.bounds];
+    _shadeView.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:_shadeView];
+    _shadeView.hidden=YES;
+    UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognizer:)];
+    [_shadeView addGestureRecognizer:tap];
 }
-
+-(void)tapGestureRecognizer:(UITapGestureRecognizer *)tap{
+    [self menuSlider];
+}
 - (void)menuSlider{
-    CGRect rect = self.view.frame;
-    if (rect.origin.x ==0) {
-        rect.origin.x = SCREEN_WIDTH - _siderEndedX;
+    float scale=0;
+    __block CGFloat x=self.view.frame.origin.x;
+    if (x==0) {
+       x = SCREEN_WIDTH - _siderEndedX;
+        scale=_scale;
+        _shadeView.hidden=YES;
     }else{
-        rect.origin.x = 0;
+        x = 0;
+        scale=1.0;
+        _shadeView.hidden=YES;
     }
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.view.frame = rect;
+        self.view.layer.position=CGPointMake(x, self.view.layer.position.y);
+        self.view.layer.transform=CATransform3DMakeScale(scale, scale, 1.0);
     }];
 }
 
@@ -54,12 +68,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-static float _siderEndedX = 80.0f;
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)pan{
     
     CGPoint point = [pan translationInView:self.view];
     static CGPoint startPoint;
     CGRect rect = self.view.frame;
+    static CGFloat scale=1.0f;
     
     
     if (pan.state == UIGestureRecognizerStateBegan) {
@@ -74,24 +88,32 @@ static float _siderEndedX = 80.0f;
         
         rect.origin.x = point.x + startPoint.x;
         
-        //        CGFloat scale = (SCREEN_WIDTH - rect.origin.x)/SCREEN_WIDTH;
+        scale =1.0-(1.0-_scale)*(rect.origin.x)/(SCREEN_WIDTH-_siderEndedX);
+        if (scale<_scale) {
+            scale=_scale;
+            rect.origin.x=SCREEN_WIDTH-_siderEndedX;
+        };
+        self.view.layer.position=CGPointMake(rect.origin.x, self.view.layer.position.y);
+        self.view.layer.transform=CATransform3DMakeScale(scale, scale, 1.0);
         
     }else if (pan.state == UIGestureRecognizerStateEnded){
-        if (self.view.frame.origin.x >= SCREEN_WIDTH/2.0f) {
+        if (rect.origin.x >= _siderEndedX) {
+            scale = _scale;
             rect.origin.x = SCREEN_WIDTH - _siderEndedX;
-//            self.weiboTableView.userInteractionEnabled = NO;
+            _shadeView.hidden=NO;
         }else{
+            scale=1.0f;
             rect.origin.x = 0;
-//            self.weiboTableView.userInteractionEnabled = YES;
+            _shadeView.hidden=YES;
         }
         
         [UIView animateWithDuration:0.3 animations:^{
-            self.view.frame = rect;
+            self.view.layer.position=CGPointMake(rect.origin.x, self.view.layer.position.y);
+            self.view.layer.transform=CATransform3DMakeScale(scale, scale, 1.0);
         }];
         
     }
     
-    self.view.frame = rect;
 }
 
 

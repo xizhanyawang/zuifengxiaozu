@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "HeadTableViewCell.h"
 #import "RootTableViewCell.h"
+#import "BaseNavigationController.h"
 
 @interface RootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -51,6 +52,23 @@
                             @"headimage":@"10.jpg"};
     
     self.array = @[dic,dic1,dic2];
+    
+    
+    self.tableView.layer.anchorPoint = CGPointMake(1.0, 0.5);
+    self.tableView.layer.position = CGPointMake(SCREEN_WIDTH/2.0f, self.tableView.layer.position.y);
+    self.tableView.layer.transform = CATransform3DMakeScale(_scale, _scale, 1.0);
+    
+    [navigation.view.layer addObserver:self forKeyPath:@"position" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    CGPoint point  = [change[NSKeyValueChangeNewKey] CGPointValue];
+    CGFloat x = SCREEN_WIDTH/2.0f + (SCREEN_WIDTH/2.0f)*(point.x/(SCREEN_WIDTH - _siderEndedX));
+    CGFloat scale = _scale + (1.0f - _scale)*(point.x/(SCREEN_WIDTH -_siderEndedX));
+    
+    self.tableView.layer.position = CGPointMake(x, self.tableView.layer.position.y);
+    self.tableView.layer.transform = CATransform3DMakeScale(scale, scale, 1.0f);
+
 }
 
 #pragma mark- UITableViewDataSource
