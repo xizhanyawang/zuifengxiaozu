@@ -117,7 +117,7 @@ void * _contentContext;
     [_contentTextLabel removeObserver:self forKeyPath:@"text"];
 }
 - (IBAction)clickAction:(id)sender {
-    [self.diaoyong dianzhanAction:self.btn];
+    [self.diaoyong dianzhanAction:self];
     if (self.isbool==YES) {
         self.isbool = NO;
         [self.btn setImage:[UIImage
@@ -127,6 +127,9 @@ void * _contentContext;
         [self.btn setImage:[UIImage imageNamed:@"dianjiqian"] forState:UIControlStateNormal];
     }
 
+}
+- (IBAction)commentAction:(id)sender {
+    [self.diaoyong commentAction:nil];
 }
 
 @end

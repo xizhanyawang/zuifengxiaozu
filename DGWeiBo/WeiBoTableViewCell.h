@@ -24,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *repostsCountLabel;
 
  //表态数
-@property (weak, nonatomic) IBOutlet UIButton *attitudesCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *attitudesCountLabel;
+
 
 @property (strong ,nonatomic)UILabel * contentTextLabel;//内容
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;

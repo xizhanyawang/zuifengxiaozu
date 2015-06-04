@@ -20,12 +20,16 @@
 #import "HTTPRequest.h"
 #import "RootViewController.h"
 #import "BaseNavigationController.h"
+#import "WeiBoTableViewCell.h"
 
 @interface ViewController ()<PullRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong , nonatomic)NewestWeiBoesModel * newsWeiboes;
 @property (weak, nonatomic) IBOutlet PullRefreshTableView *weiboTableView;
+@property(strong,nonatomic)NSMutableArray *arr1;
+
 @end
 
 @implementation ViewController{
@@ -73,6 +77,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.arr1=[NSMutableArray array];
     _currentPage = 1;
     [_weiboTableView setPDelegate:self];//设置下拉刷新的委托对象
     [_weiboTableView reloadDataFirst];//第一次刷新数据
@@ -192,8 +197,8 @@ static NSOperationQueue * queue;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSArray * array = self.newsWeiboes.statuses;
-    return array.count;
+   self.array = self.newsWeiboes.statuses;
+    return self.array.count;
     
 }
 
@@ -207,12 +212,12 @@ static NSOperationQueue * queue;
 
     }
     
-    NewestWeiBoModel * weibo = self.newsWeiboes.statuses[indexPath.row];
+    NewestWeiBoModel * weibo = self.array[indexPath.row];
     
     cell.contentTextLabel.text = weibo.text;
     [cell.commentsCountLabel setTitle:[NSString stringWithFormat:@"评论:%ld",weibo.comments_count] forState:UIControlStateNormal];
     [cell.repostsCountLabel setTitle:[NSString stringWithFormat:@"转发:%ld",weibo.reposts_count] forState:UIControlStateNormal];
-//   [cell.attitudesCountLabel setTitle:[NSString stringWithFormat:@"%ld",weibo.attitudes_count] forState:UIControlStateNormal];
+ cell.attitudesCountLabel.text =[NSString stringWithFormat:@"%ld",weibo.attitudes_count];
     
     cell.timeString = weibo.created_at;
     
@@ -229,6 +234,16 @@ static NSOperationQueue * queue;
         
     }];
     cell.diaoyong=self;
+    if ([self.arr1 containsObject:indexPath]) {
+        [cell.btn setImage:[UIImage
+                            imageNamed:@"点击后"] forState:UIControlStateNormal];
+        cell.isbool=NO;
+        
+    }else{
+        [cell.btn setImage:[UIImage
+                            imageNamed:@"dianjiqian"] forState:UIControlStateNormal];
+    }
+
     
     return cell;
 }
@@ -238,17 +253,26 @@ static NSOperationQueue * queue;
     
     return CGRectGetHeight(cell.frame);
 }
+
 //跳转
 
 - (IBAction)switchTouched:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_SLIDER object:nil];
 }
--(void)dianzhanAction:(UIButton *)btn{
-    
-    
+-(void)dianzhanAction:(WeiBoTableViewCell *)cell{
+    NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    if (![self.arr1 containsObject:indexPath]) {
+        [self.arr1 addObject:indexPath];
+    }
+    else{
+        [self.arr1 removeObject:indexPath];
+    }
+    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
-
+-(void)commentAction:(id)btn{
+    [self performSegueWithIdentifier:@"comment" sender:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

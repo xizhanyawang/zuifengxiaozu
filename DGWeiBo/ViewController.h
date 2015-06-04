@@ -12,12 +12,14 @@
 #import <UIKit/UIKit.h>
 
 @class RootViewController;
+@class WeiBoTableViewCell;
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (strong , nonatomic)RootViewController * rootViewCont;
 @property(strong,nonatomic)NSMutableArray * array;
--(void)dianzhanAction:(UIButton *)btn;
+-(void)dianzhanAction:(WeiBoTableViewCell *)btn;
+-(void)commentAction:(id)btn;
 @end
 
