@@ -142,6 +142,7 @@
     }else if(indexPath.row==2){
     
         [self performSegueWithIdentifier:@"toEdit" sender:self];
+        [_homeNavigation menuSlider];
     }
 }
 
