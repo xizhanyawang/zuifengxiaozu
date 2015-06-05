@@ -20,6 +20,6 @@ static float _siderEndedX = 80.0f;
 
 
 
-
+- (void)menuSlider;
 
 @end

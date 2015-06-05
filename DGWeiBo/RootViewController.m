@@ -22,6 +22,8 @@
 
 @implementation RootViewController{
     
+    BaseNavigationController * _homeNavigation;
+    
 }
 
 - (void)viewDidLoad {
@@ -38,6 +40,10 @@
     [self addChildViewController:navigation];
     
     ViewController * viewCont = (ViewController *)navigation.topViewController;
+    
+    _homeNavigation = navigation;
+    
+    
     
     viewCont.rootViewCont = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -131,6 +137,7 @@
     if(indexPath.row==0){
         
         [self performSegueWithIdentifier:@"toMessage" sender:self];
+        [_homeNavigation menuSlider];
         
     }else if(indexPath.row==2){
     
