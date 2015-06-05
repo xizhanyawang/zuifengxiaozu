@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -68,6 +68,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="segmentedControl" destination="VvQ-Jf-te1" id="DZV-VR-N3w"/>
+                        <outlet property="tableView" destination="Wnf-Xr-K2k" id="ni2-In-VhL"/>
                         <outlet property="weiboTableView" destination="Wnf-Xr-K2k" id="BzJ-2g-fmw"/>
                         <segue destination="dsy-gi-SUJ" kind="push" id="gYs-lA-mzD"/>
                         <segue destination="lJ9-z2-rYh" kind="push" id="JXL-n4-ih7"/>
@@ -269,12 +270,12 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.31121164499999998" blue="0.3033366072" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kEE-VD-3vP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="tableView" destination="TdO-RP-EsP" id="JYd-38-uyn"/>
+                        <outlet property="tableView" destination="TdO-RP-EsP" id="mKc-h7-k3K"/>
                         <segue destination="xb9-i7-3k7" kind="push" id="uuX-7H-Rzf"/>
                         <segue destination="7ZQ-Er-hAm" kind="show" identifier="toEdit" id="jVw-yC-QVN"/>
                         <segue destination="exg-Of-jfc" kind="push" id="pDY-J0-Akn"/>
@@ -285,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFR-7d-ZD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-356"/>
+            <point key="canvasLocation" x="-1" y="-346"/>
         </scene>
         <!--基本信息-->
         <scene sceneID="U3q-GI-c4g">
@@ -595,7 +596,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.png@2x" width="32" height="30"/>
+        <image name="1.png@2x" width="1000" height="1347"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="umo-md-O7h"/>
