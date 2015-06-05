@@ -49,25 +49,25 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
     NSDictionary * dic1 = @{@"name":@"好友资料",
-                           @"headimage":@"15.jpg"};
+                           @"headimage":@"mm1"};
     
     NSDictionary * dic2 = @{@"name":@"新的好友",
-                            @"headimage":@"13.jpg"};
+                            @"headimage":@"mm2"};
     
     NSDictionary * dic3 = @{@"name":@"修改资料",
-                            @"headimage":@"10.jpg"};
+                            @"headimage":@"mm3"};
 
     NSDictionary * dic4 = @{@"name":@"我的相册",
-                            @"headimage":@"14.jpg"};
+                            @"headimage":@"mm4"};
     
     NSDictionary * dic5 = @{@"name":@"我的赞",
-                            @"headimage":@"12.jpg"};
+                            @"headimage":@"mm5"};
     
     NSDictionary * dic6 = @{@"name":@"新手任务",
-                            @"headimage":@"10.jpg"};
+                            @"headimage":@"mm2"};
 
     NSDictionary * dic7 = @{@"name":@"个性化",
-                            @"headimage":@"8.jpg"};
+                            @"headimage":@"mm4"};
 
     
     self.array = @[dic1,dic2,dic3,dic4,dic5,dic6,dic7];

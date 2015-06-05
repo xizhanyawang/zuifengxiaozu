@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PersonalMessageHead">
-            <rect key="frame" x="0.0" y="0.0" width="328" height="18"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcD-4d-U0x">
@@ -76,7 +76,7 @@
                 <outlet property="headimage" destination="dcD-4d-U0x" id="9ST-tj-6SJ"/>
                 <outlet property="nameLabel" destination="hcS-Ri-lRs" id="CT9-8g-zJU"/>
             </connections>
-            <point key="canvasLocation" x="345" y="82"/>
+            <point key="canvasLocation" x="343" y="81.5"/>
         </view>
     </objects>
 </document>

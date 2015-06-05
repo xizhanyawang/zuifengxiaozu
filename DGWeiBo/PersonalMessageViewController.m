@@ -10,6 +10,9 @@
 #import "PersonalMessageHead.h"
 #import "DGExpandheader.h"
 #import "WeiBoTableViewCell.h"
+#import "NewestWeiBoModel.h"
+#import "HTTPRequest.h"
+#import "PullRefreshTableView.h"
 
 @interface PersonalMessageViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>{
 
@@ -22,6 +25,13 @@
 @property (weak, nonatomic) IBOutlet UIView * sheetView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+
+@property (weak, nonatomic) IBOutlet PullRefreshTableView *weiboTableView;
+
+@property(strong,nonatomic)NSMutableArray *arr1;
+
+
+@property (strong , nonatomic)NewestWeiBoesModel * newsWeiboes;
 
 @end
 
@@ -57,7 +67,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.array = [NSMutableArray new];
+    self.arr1 = [NSMutableArray new];
     
     /*******************导航栏透明**************************/
 //    UIImage *image = [UIImage imageNamed:@"nav"];
@@ -114,6 +125,7 @@
 
 }
 
+//右按钮
 -(void)dotAction{
 
     static int a = 0;
@@ -143,13 +155,14 @@
     }];
 }
 
+//搜索
 -(void)searchAction{
 
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
+    
     return 10;
 }
 
@@ -162,6 +175,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
     }
+    
     return cell;
 }
 
