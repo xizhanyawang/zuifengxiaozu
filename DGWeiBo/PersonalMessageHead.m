@@ -10,6 +10,14 @@
 
 @implementation PersonalMessageHead
 
+//粉丝
+- (IBAction)fansAction:(id)sender {
+}
+
+//关注
+- (IBAction)attentionAction:(id)sender {
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -17,5 +25,6 @@
     // Drawing code
 }
 */
+
 
 @end

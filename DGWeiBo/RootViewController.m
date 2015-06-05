@@ -42,16 +42,29 @@
     viewCont.rootViewCont = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
-    NSDictionary * dic = @{@"name":@"修改资料",
+    NSDictionary * dic1 = @{@"name":@"好友资料",
                            @"headimage":@"15.jpg"};
     
-    NSDictionary * dic1 = @{@"name":@"修改资料",
+    NSDictionary * dic2 = @{@"name":@"新的好友",
                             @"headimage":@"13.jpg"};
     
-    NSDictionary * dic2 = @{@"name":@"修改资料",
+    NSDictionary * dic3 = @{@"name":@"修改资料",
                             @"headimage":@"10.jpg"};
+
+    NSDictionary * dic4 = @{@"name":@"我的相册",
+                            @"headimage":@"14.jpg"};
     
-    self.array = @[dic,dic1,dic2];
+    NSDictionary * dic5 = @{@"name":@"我的赞",
+                            @"headimage":@"12.jpg"};
+    
+    NSDictionary * dic6 = @{@"name":@"新手任务",
+                            @"headimage":@"10.jpg"};
+
+    NSDictionary * dic7 = @{@"name":@"个性化",
+                            @"headimage":@"8.jpg"};
+
+    
+    self.array = @[dic1,dic2,dic3,dic4,dic5,dic6,dic7];
     
     
     self.tableView.layer.anchorPoint = CGPointMake(1.0, 0.5);

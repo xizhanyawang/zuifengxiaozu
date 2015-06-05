@@ -12,4 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *headimage;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *attentionNumber;
+
+@property (weak, nonatomic) IBOutlet UILabel *fansNumber;
+
 @end
