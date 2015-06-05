@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wnf-Xr-K2k" customClass="PullRefreshTableView">
-                                <rect key="frame" x="0.0" y="44" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="5wy-y8-Xq0"/>
@@ -71,7 +71,7 @@
                         <outlet property="weiboTableView" destination="Wnf-Xr-K2k" id="BzJ-2g-fmw"/>
                         <segue destination="dsy-gi-SUJ" kind="push" id="gYs-lA-mzD"/>
                         <segue destination="lJ9-z2-rYh" kind="push" id="JXL-n4-ih7"/>
-                        <segue destination="oEB-nV-9UH" kind="push" id="fdu-0B-PdH"/>
+                        <segue destination="oEB-nV-9UH" kind="push" identifier="comment" id="fdu-0B-PdH"/>
                         <segue destination="Ljw-uN-4IG" kind="push" id="umo-md-O7h"/>
                     </connections>
                 </viewController>
@@ -598,6 +598,6 @@
         <image name="1.png@2x" width="32" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bB8-2i-XcT"/>
+        <segue reference="umo-md-O7h"/>
     </inferredMetricsTieBreakers>
 </document>
