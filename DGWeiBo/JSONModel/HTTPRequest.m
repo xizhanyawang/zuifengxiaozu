@@ -47,22 +47,37 @@ static NSOperationQueue * downLoadImageManager() {
 }
 
 //组装数据，发送请求并返回data
-+ (void)packageDatas:(NSDictionary *)sendDic urlType:(NSString *)urlType responseObject:(requestData)blockObject failure:(failureError)failure{
++ (void)packageDatas:(NSDictionary *)sendDic urlType:(NSString *)urlType httpMethod:(HTTPMethodType)type responseObject:(requestData)blockObject failure:(failureError)failure{
 
     NSString *strURL =[HTTPURL stringByAppendingPathComponent:urlType];
         
     NSLog(@"%@", strURL);
 
-    AFHTTPRequestOperationManager *manager = HTTPJSONRequestManager();
     
+    AFHTTPRequestOperationManager *manager = HTTPJSONRequestManager();
+    if(type == HTTPMethodTypeGet){
     [manager GET:strURL parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         blockObject(operation.responseString);
+       
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
         failure(error);
     }];
+    }else if (type == HTTPMethodTypePOST){
+
+        [manager POST:strURL parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            blockObject(operation.responseString);
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+            failure(error);
+        }];
+
+    }
 }
 
 //上传图片

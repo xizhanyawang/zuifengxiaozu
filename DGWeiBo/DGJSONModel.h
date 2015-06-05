@@ -12,5 +12,7 @@
 #import "NewestWeiBoModel.h"
 #import "UserInfoModel.h"
 #import "LocationModel.h"
+#import "GetIPAddress.h"
+#import "CommentsModel.h"
 
 #endif

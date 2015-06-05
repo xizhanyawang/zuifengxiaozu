@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.guowenwen.QN.DGWeiBo</string>
+	<string>com.ZhongWeiDi.QN.DGWeiBo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -27,7 +27,7 @@
 			<string>com.weibo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb1958836545</string>
+				<string>wb3364315272</string>
 			</array>
 		</dict>
 	</array>

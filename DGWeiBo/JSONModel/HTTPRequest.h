@@ -17,11 +17,17 @@ typedef void(^downImageFailure)(NSError * error , NSString * pathString);
 
 typedef  void (^imageBlock)(UIImage * image);
 
+typedef NS_ENUM(NSInteger, HTTPMethodType){
+    HTTPMethodTypeGet = 0,
+    HTTPMethodTypePOST = 1
+
+};
+
 
 @interface HTTPRequest : NSObject
 
 //组装数据，发送请求并返回data
-+ (void)packageDatas:(NSDictionary *)sendDic urlType:(NSString *)urlType responseObject:(requestData)blockObject failure:(failureError)failure;
++ (void)packageDatas:(NSDictionary *)sendDic urlType:(NSString *)urlType httpMethod:(HTTPMethodType)type responseObject:(requestData)blockObject failure:(failureError)failure;
 
 //上传图片
 + (void)uploadPhoto:(NSData *)imageData parameters:(NSDictionary *)parameters urlType:(NSString *)urlType fieldName:(NSString *)fieldName responseObject:(requestData)blockObject failure:(failureError)failure;

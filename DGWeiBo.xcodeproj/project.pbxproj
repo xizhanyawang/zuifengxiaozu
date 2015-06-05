@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18014E061B2180120060F11D /* CommentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18014E051B2180120060F11D /* CommentsModel.m */; };
+		18014E091B2180390060F11D /* GetIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 18014E081B2180390060F11D /* GetIPAddress.m */; };
+		183A71F61B2184B2007E0766 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A71F51B2184B2007E0766 /* HTTPRequest.m */; };
 		1845BBBE1B1EBBF500F468D3 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1845BBAE1B1EBBF500F468D3 /* 1.jpg */; };
 		1845BBBF1B1EBBF500F468D3 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1845BBAF1B1EBBF500F468D3 /* 10.jpg */; };
 		1845BBC01B1EBBF500F468D3 /* 11.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1845BBB01B1EBBF500F468D3 /* 11.jpeg */; };
@@ -59,7 +62,6 @@
 		4875F7131B149C7B004AECD4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F7081B149C7B004AECD4 /* AFURLRequestSerialization.m */; };
 		4875F7141B149C7B004AECD4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F70A1B149C7B004AECD4 /* AFURLResponseSerialization.m */; };
 		4875F7151B149C7B004AECD4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F70C1B149C7B004AECD4 /* AFURLSessionManager.m */; };
-		4875F7181B149C8C004AECD4 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F7171B149C8C004AECD4 /* HTTPRequest.m */; };
 		4875F71C1B149CF0004AECD4 /* GCDCompressionImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F71B1B149CF0004AECD4 /* GCDCompressionImage.m */; };
 		4875F7201B149DF6004AECD4 /* ConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F71F1B149DF6004AECD4 /* ConfigFile.m */; };
 		48D1EAB51B15A26E00903BAF /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1EA9E1B15A26E00903BAF /* JSONModel.m */; };
@@ -103,6 +105,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18014E041B2180120060F11D /* CommentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsModel.h; sourceTree = "<group>"; };
+		18014E051B2180120060F11D /* CommentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsModel.m; sourceTree = "<group>"; };
+		18014E071B2180390060F11D /* GetIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetIPAddress.h; sourceTree = "<group>"; };
+		18014E081B2180390060F11D /* GetIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetIPAddress.m; sourceTree = "<group>"; };
+		183A71F41B2184B2007E0766 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequest.h; sourceTree = "<group>"; };
+		183A71F51B2184B2007E0766 /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequest.m; sourceTree = "<group>"; };
 		1845BBAE1B1EBBF500F468D3 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		1845BBAF1B1EBBF500F468D3 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		1845BBB01B1EBBF500F468D3 /* 11.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpeg; sourceTree = "<group>"; };
@@ -188,8 +196,6 @@
 		4875F70A1B149C7B004AECD4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		4875F70B1B149C7B004AECD4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4875F70C1B149C7B004AECD4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		4875F7161B149C8C004AECD4 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = AFNetworking/HTTPRequest.h; sourceTree = "<group>"; };
-		4875F7171B149C8C004AECD4 /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequest.m; path = AFNetworking/HTTPRequest.m; sourceTree = "<group>"; };
 		4875F71A1B149CF0004AECD4 /* GCDCompressionImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDCompressionImage.h; sourceTree = "<group>"; };
 		4875F71B1B149CF0004AECD4 /* GCDCompressionImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDCompressionImage.m; sourceTree = "<group>"; };
 		4875F71E1B149DF6004AECD4 /* ConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigFile.h; sourceTree = "<group>"; };
@@ -473,8 +479,6 @@
 			children = (
 				48D1EAC21B15A8DA00903BAF /* DataModel */,
 				48D1EA9B1B15A26E00903BAF /* JSONModel */,
-				4875F7161B149C8C004AECD4 /* HTTPRequest.h */,
-				4875F7171B149C8C004AECD4 /* HTTPRequest.m */,
 				4875F71E1B149DF6004AECD4 /* ConfigFile.h */,
 				4875F71F1B149DF6004AECD4 /* ConfigFile.m */,
 				48732D661B15674F00BC433E /* DGPackageData.h */,
@@ -486,6 +490,8 @@
 		48D1EA9B1B15A26E00903BAF /* JSONModel */ = {
 			isa = PBXGroup;
 			children = (
+				183A71F41B2184B2007E0766 /* HTTPRequest.h */,
+				183A71F51B2184B2007E0766 /* HTTPRequest.m */,
 				48D1EA9C1B15A26E00903BAF /* JSONModel */,
 				48D1EAA51B15A26E00903BAF /* JSONModelCategories */,
 				48D1EAA81B15A26E00903BAF /* JSONModelLib.h */,
@@ -548,8 +554,12 @@
 			children = (
 				48D1EABF1B15A65600903BAF /* NewestWeiBoModel.h */,
 				48D1EAC01B15A65600903BAF /* NewestWeiBoModel.m */,
+				18014E041B2180120060F11D /* CommentsModel.h */,
+				18014E051B2180120060F11D /* CommentsModel.m */,
 				48D1EAC31B15A90F00903BAF /* LocationModel.h */,
 				48D1EAC41B15A90F00903BAF /* LocationModel.m */,
+				18014E071B2180390060F11D /* GetIPAddress.h */,
+				18014E081B2180390060F11D /* GetIPAddress.m */,
 				48D1EAC61B15AEAD00903BAF /* UserInfoModel.h */,
 				48D1EAC71B15AEAD00903BAF /* UserInfoModel.m */,
 				48D1EACC1B16057800903BAF /* DGJSONModel.h */,
@@ -892,7 +902,6 @@
 				4875F7111B149C7B004AECD4 /* AFSecurityPolicy.m in Sources */,
 				1845BBE21B1EBCAD00F468D3 /* PersonalMessageHead.m in Sources */,
 				4875F70F1B149C7B004AECD4 /* AFHTTPSessionManager.m in Sources */,
-				4875F7181B149C8C004AECD4 /* HTTPRequest.m in Sources */,
 				48D1EAD11B1607AA00903BAF /* PullRefreshTableView.m in Sources */,
 				4875F71C1B149CF0004AECD4 /* GCDCompressionImage.m in Sources */,
 				48D1EABB1B15A26E00903BAF /* JSONHTTPClient.m in Sources */,
@@ -901,7 +910,10 @@
 				7410832F1B1DAF380070A4DF /* DGImageViewerView.m in Sources */,
 				7409803F1B20480100D271AA /* CommentViewController.m in Sources */,
 				1845BBD11B1EBC5000F468D3 /* DGExpandheader.m in Sources */,
+				18014E091B2180390060F11D /* GetIPAddress.m in Sources */,
 				74C4D37D1B1C8E90004EF0BA /* BaseNavigationController.m in Sources */,
+				18014E061B2180120060F11D /* CommentsModel.m in Sources */,
+				183A71F61B2184B2007E0766 /* HTTPRequest.m in Sources */,
 				48732D681B15674F00BC433E /* DGPackageData.m in Sources */,
 				18707DA21B2146A000F7002F /* RevisePersonalViewController.m in Sources */,
 				4875F7131B149C7B004AECD4 /* AFURLRequestSerialization.m in Sources */,
