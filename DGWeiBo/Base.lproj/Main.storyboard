@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< Updated upstream
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
->>>>>>> origin/master
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="quM-oV-W6Y">
->>>>>>> origin/master
->>>>>>> Stashed changes
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -29,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wnf-Xr-K2k" customClass="PullRefreshTableView">
-                                <rect key="frame" x="0.0" y="-2" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="5wy-y8-Xq0"/>
@@ -80,11 +68,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="segmentedControl" destination="VvQ-Jf-te1" id="DZV-VR-N3w"/>
-                        <outlet property="tableView" destination="Wnf-Xr-K2k" id="DI0-wi-hbj"/>
                         <outlet property="weiboTableView" destination="Wnf-Xr-K2k" id="BzJ-2g-fmw"/>
                         <segue destination="dsy-gi-SUJ" kind="push" id="gYs-lA-mzD"/>
                         <segue destination="lJ9-z2-rYh" kind="push" id="JXL-n4-ih7"/>
-                        <segue destination="oEB-nV-9UH" kind="push" identifier="comment" id="fdu-0B-PdH"/>
+                        <segue destination="oEB-nV-9UH" kind="push" id="fdu-0B-PdH"/>
                         <segue destination="Ljw-uN-4IG" kind="push" id="umo-md-O7h"/>
                     </connections>
                 </viewController>
@@ -220,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="-410" y="2833"/>
         </scene>
-        <!-- 发评论-->
+        <!--View Controller-->
         <scene sceneID="G6K-kA-keb">
             <objects>
-                <viewController id="oEB-nV-9UH" customClass="CommentViewController" sceneMemberID="viewController">
+                <viewController id="oEB-nV-9UH" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Nf-FY-hSk"/>
                         <viewControllerLayoutGuide type="bottom" id="RYP-pK-mXW"/>
@@ -231,20 +218,9 @@
                     <view key="view" contentMode="scaleToFill" id="ggq-ac-yZQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="发评论....." translatesAutoresizingMaskIntoConstraints="NO" id="GsV-3Z-5ZO">
-                                <rect key="frame" x="0.0" y="64" width="320" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oEB-nV-9UH" id="aKt-61-FTv"/>
-                                </connections>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title=" 发评论" id="yfu-NC-Tke"/>
+                    <navigationItem key="navigationItem" id="yfu-NC-Tke"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLo-XK-Y6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -285,7 +261,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TdO-RP-EsP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="quM-oV-W6Y" id="2vD-ud-vtr"/>
@@ -622,6 +598,6 @@
         <image name="1.png@2x" width="32" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="umo-md-O7h"/>
+        <segue reference="bB8-2i-XcT"/>
     </inferredMetricsTieBreakers>
 </document>

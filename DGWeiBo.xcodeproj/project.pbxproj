@@ -29,11 +29,11 @@
 		1845BBE61B1EBCBD00F468D3 /* PersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845BBE51B1EBCBD00F468D3 /* PersonalMessageViewController.m */; };
 		1845BBEA1B1EBCD500F468D3 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845BBE81B1EBCD500F468D3 /* PersonalTableViewCell.m */; };
 		1845BBEB1B1EBCD500F468D3 /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1845BBE91B1EBCD500F468D3 /* PersonalTableViewCell.xib */; };
+		18707D6D1B213B1B00F7002F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18707D6B1B213B1B00F7002F /* Main.storyboard */; };
 		48732D681B15674F00BC433E /* DGPackageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 48732D671B15674F00BC433E /* DGPackageData.m */; };
 		4875F6A31B1411BA004AECD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6A21B1411BA004AECD4 /* main.m */; };
 		4875F6A61B1411BA004AECD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6A51B1411BA004AECD4 /* AppDelegate.m */; };
 		4875F6A91B1411BA004AECD4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6A81B1411BA004AECD4 /* ViewController.m */; };
-		4875F6AC1B1411BA004AECD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4875F6AA1B1411BA004AECD4 /* Main.storyboard */; };
 		4875F6AE1B1411BA004AECD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4875F6AD1B1411BA004AECD4 /* Images.xcassets */; };
 		4875F6B11B1411BA004AECD4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4875F6AF1B1411BA004AECD4 /* LaunchScreen.xib */; };
 		4875F6BD1B1411BA004AECD4 /* DGWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6BC1B1411BA004AECD4 /* DGWeiBoTests.m */; };
@@ -124,6 +124,7 @@
 		1845BBE71B1EBCD500F468D3 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
 		1845BBE81B1EBCD500F468D3 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
 		1845BBE91B1EBCD500F468D3 /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
+		18707D6C1B213B1B00F7002F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48732D661B15674F00BC433E /* DGPackageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGPackageData.h; sourceTree = "<group>"; };
 		48732D671B15674F00BC433E /* DGPackageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGPackageData.m; sourceTree = "<group>"; };
 		4875F69D1B1411BA004AECD4 /* DGWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +134,6 @@
 		4875F6A51B1411BA004AECD4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4875F6A71B1411BA004AECD4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4875F6A81B1411BA004AECD4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4875F6AB1B1411BA004AECD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4875F6AD1B1411BA004AECD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4875F6B01B1411BA004AECD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4875F6B61B1411BA004AECD4 /* DGWeiBoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DGWeiBoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,7 +345,7 @@
 				740980391B20470F00D271AA /* commentController */,
 				4875F6A41B1411BA004AECD4 /* AppDelegate.h */,
 				4875F6A51B1411BA004AECD4 /* AppDelegate.m */,
-				4875F6AA1B1411BA004AECD4 /* Main.storyboard */,
+				18707D6B1B213B1B00F7002F /* Main.storyboard */,
 				1845BBAB1B1EBBB600F468D3 /* PersonalInformation */,
 				4875F6AD1B1411BA004AECD4 /* Images.xcassets */,
 				4875F6AF1B1411BA004AECD4 /* LaunchScreen.xib */,
@@ -793,12 +793,12 @@
 			files = (
 				1845BBC91B1EBBF500F468D3 /* 6.jpg in Resources */,
 				1845BBBE1B1EBBF500F468D3 /* 1.jpg in Resources */,
-				4875F6AC1B1411BA004AECD4 /* Main.storyboard in Resources */,
 				1845BBCC1B1EBBF500F468D3 /* 9.jpg in Resources */,
 				1845BBC11B1EBBF500F468D3 /* 12.jpg in Resources */,
 				4875F6B11B1411BA004AECD4 /* LaunchScreen.xib in Resources */,
 				1845BBE31B1EBCAD00F468D3 /* PersonalMessageHead.xib in Resources */,
 				74C4D38E1B1D3719004EF0BA /* HeadTableViewCell.xib in Resources */,
+				18707D6D1B213B1B00F7002F /* Main.storyboard in Resources */,
 				1845BBC01B1EBBF500F468D3 /* 11.jpeg in Resources */,
 				74C4D3971B1D58AA004EF0BA /* dianjiqian.png in Resources */,
 				1845BBCD1B1EBBF500F468D3 /* nav.png in Resources */,
@@ -900,10 +900,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4875F6AA1B1411BA004AECD4 /* Main.storyboard */ = {
+		18707D6B1B213B1B00F7002F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4875F6AB1B1411BA004AECD4 /* Base */,
+				18707D6C1B213B1B00F7002F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
