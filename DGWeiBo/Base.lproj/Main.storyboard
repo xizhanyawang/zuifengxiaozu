@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="-410" y="2833"/>
         </scene>
-        <!--View Controller-->
+        <!--发评论-->
         <scene sceneID="G6K-kA-keb">
             <objects>
-                <viewController id="oEB-nV-9UH" sceneMemberID="viewController">
+                <viewController id="oEB-nV-9UH" customClass="CommentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Nf-FY-hSk"/>
                         <viewControllerLayoutGuide type="bottom" id="RYP-pK-mXW"/>
@@ -219,10 +219,34 @@
                     <view key="view" contentMode="scaleToFill" id="ggq-ac-yZQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o38-b6-6jc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oEB-nV-9UH" id="XcB-WE-abi"/>
+                                </connections>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yfu-NC-Tke"/>
+                    <navigationItem key="navigationItem" title="发评论" id="yfu-NC-Tke">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MNn-3i-tl1">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jb2-2q-6Cx">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="发送">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textViewOutlet" destination="o38-b6-6jc" id="eqU-pO-03o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLo-XK-Y6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

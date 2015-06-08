@@ -21,7 +21,7 @@
 #import "RootViewController.h"
 #import "BaseNavigationController.h"
 #import "WeiBoTableViewCell.h"
-
+#import "CommentViewController.h"
 @interface ViewController ()<PullRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -270,12 +270,23 @@ static NSOperationQueue * queue;
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
--(void)commentAction:(id)btn{
-    [self performSegueWithIdentifier:@"comment" sender:nil];
+-(void)commentAction:(WeiBoTableViewCell*)cell
+{
+     NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    [self performSegueWithIdentifier:@"comment" sender:indexPath];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"comment"]) {
+        CommentViewController * comment=segue.destinationViewController;
+        NSIndexPath * indexPath=sender;
+        comment.weibo=self.array[indexPath.row];
+        
+    }
+    
 }
 
 @end

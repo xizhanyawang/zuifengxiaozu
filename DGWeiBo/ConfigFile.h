@@ -31,6 +31,9 @@
 //判断正浮点数
 + (BOOL)validateFloat:(NSString *)mobile;
 
+//获取IP
++ (NSArray *)getIpAddresses;
+
 /*
 //获取当天week
 + (NSInteger )getCalendarWeek:(NSDate *)date;

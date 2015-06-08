@@ -21,4 +21,10 @@
 
 @implementation NewestWeiBoModel
 
+
++ (JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"ID"}];
+}
+
+
 @end

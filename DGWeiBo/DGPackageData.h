@@ -96,11 +96,11 @@ typedef void(^requestData)(id responseObject);
  
  *  token : 采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
  
- *  count :   单页返回的记录条数，默认为50。
+ * ID : 需要评论的微博ID
  
- *  page  :   返回结果的页码，默认为1。
+ * comment : 评论内容，必须做URLencode，内容不超过140个汉字。
  
- *  baseApp : 是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0。
+ * rip : 开发者上报的操作用户真实IP，形如：211.156.0.1。
  
  
  */

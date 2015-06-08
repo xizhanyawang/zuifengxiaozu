@@ -44,7 +44,7 @@
 
 @property (strong ,nonatomic)NSString * created_at;//微博创建时间
 
-@property (strong , nonatomic)NSString * id;//微博ID
+@property (strong , nonatomic)NSString * ID;//微博ID
 
 @property (strong , nonatomic)NSString * mid;//微博MID
 

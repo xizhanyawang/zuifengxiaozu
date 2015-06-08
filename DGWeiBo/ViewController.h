@@ -19,7 +19,7 @@
 
 @property (strong , nonatomic)RootViewController * rootViewCont;
 @property(strong,nonatomic)NSMutableArray * array;
--(void)dianzhanAction:(WeiBoTableViewCell *)btn;
--(void)commentAction:(id)btn;
+-(void)dianzhanAction:(WeiBoTableViewCell *)cell;
+-(void)commentAction:(WeiBoTableViewCell*)cell;
 @end
 

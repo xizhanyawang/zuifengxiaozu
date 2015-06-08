@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class NewestWeiBoModel;
 @interface CommentViewController : UIViewController
-
+@property(strong,nonatomic)NewestWeiBoModel *weibo;
 @end
