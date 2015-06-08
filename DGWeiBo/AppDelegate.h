@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kAppKey         @"3364315272"
+#define kAppKey         @"379934674"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

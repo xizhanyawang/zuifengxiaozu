@@ -197,7 +197,7 @@ static NSOperationQueue * queue;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   self.array = self.newsWeiboes.statuses;
+   self.array = (NSMutableArray *)self.newsWeiboes.statuses;
     return self.array.count;
     
 }
