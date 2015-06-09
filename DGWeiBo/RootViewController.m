@@ -47,26 +47,27 @@
     
     viewCont.rootViewCont = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor colorWithRed:182.0f/255.0f green:33.0f/255.0f blue:90.0f/255.0f alpha:1.0f];
   
     NSDictionary * dic1 = @{@"name":@"好友资料",
                            @"headimage":@"mm1"};
     
-    NSDictionary * dic2 = @{@"name":@"新的好友",
-                            @"headimage":@"mm2"};
+    NSDictionary * dic2 = @{@"name":@"我的首页",
+                            @"headimage":@"mm1"};
     
     NSDictionary * dic3 = @{@"name":@"修改资料",
-                            @"headimage":@"mm3"};
+                            @"headimage":@"mm6"};
 
-    NSDictionary * dic4 = @{@"name":@"我的相册",
-                            @"headimage":@"mm4"};
+    NSDictionary * dic4 = @{@"name":@"我的关注",
+                            @"headimage":@"mm3"};
     
-    NSDictionary * dic5 = @{@"name":@"我的赞",
+    NSDictionary * dic5 = @{@"name":@"我的相册",
                             @"headimage":@"mm5"};
     
-    NSDictionary * dic6 = @{@"name":@"新手任务",
+    NSDictionary * dic6 = @{@"name":@"我的地址",
                             @"headimage":@"mm2"};
 
-    NSDictionary * dic7 = @{@"name":@"个性化",
+    NSDictionary * dic7 = @{@"name":@"设置",
                             @"headimage":@"mm4"};
 
     
@@ -102,6 +103,7 @@
         HeadTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:stringcell];
         if (!cell) {
             cell = [[[NSBundle mainBundle]loadNibNamed:stringcell owner:self options:nil]lastObject];
+            cell.backgroundColor = [UIColor colorWithRed:182.0f/255.0f green:33.0f/255.0f blue:90.0f/255.0f alpha:1.0f];
         }
         return cell;
     }else{
@@ -109,6 +111,8 @@
         RootTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:stringcell];
         if (!cell) {
             cell = [[[NSBundle mainBundle]loadNibNamed:stringcell owner:self options:nil]lastObject];
+            cell.backgroundColor = [UIColor colorWithRed:182.0f/255.0f green:33.0f/255.0f blue:90.0f/255.0f alpha:1.0f];
+
         }
         NSDictionary * dic = self.array[indexPath.row];
         

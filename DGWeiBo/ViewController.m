@@ -27,7 +27,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong , nonatomic)NewestWeiBoesModel * newsWeiboes;
+
 @property (weak, nonatomic) IBOutlet PullRefreshTableView *weiboTableView;
+
 @property(strong,nonatomic)NSMutableArray *arr1;
 
 @end
