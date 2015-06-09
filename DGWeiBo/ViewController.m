@@ -206,6 +206,7 @@ static NSOperationQueue * queue;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * indentifier = @"WeiBoTableViewCell";
+    
     WeiBoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
     
     if (!cell) {

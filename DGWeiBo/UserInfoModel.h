@@ -44,36 +44,10 @@
 @property(strong,nonatomic)NSString * online_status; //用户的在线状态，0：不在线、1：在线
 @property(strong,nonatomic)NSString *  bi_followers_count; //用户的互粉数
 @property(strong,nonatomic)NSString * lang;//用户当前的语言版本，zh-cn：简体中文，zh-tw：繁体中文，en：英语
+@end
 
+@interface UserInfoModel (currentUserInfoModel)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+extern UserInfoModel * ex_userInfo;
 
 @end

@@ -11,3 +11,12 @@
 @implementation UserInfoModel
 
 @end
+
+#import "DGPackageData.h"
+#import "AppDelegate.h"
+
+@implementation UserInfoModel (currentUserInfoModel)
+
+UserInfoModel * ex_userInfo = nil;
+
+@end

@@ -197,5 +197,29 @@
     
 }
 
+//获取用户信息
++(void)gainUserInfoID:(NSString *)UserId responseObject:(requestData)blockObject failure:(failureError)failure{
+    NSDictionary * dic = @{@"source":kAppKey,
+                           @"access_token":source_token,
+                           @"uid":UserId};
+    NSString * urlstring = @"users/show.json";
+    [HTTPRequest packageDatas:dic urlType:urlstring httpMethod:HTTPMethodTypeGet responseObject:^(id responseObject) {
+        NSError * error;
+        UserInfoModel * currentUser = [[UserInfoModel alloc]initWithString:responseObject error:&error];
+        if(error){
+        
+            NSLog(@"错误%@",error);
+            
+            failure(error);
+        }else{
+        
+            blockObject(currentUser);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
 
 @end

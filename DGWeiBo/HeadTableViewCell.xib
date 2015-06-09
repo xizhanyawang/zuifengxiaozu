@@ -31,7 +31,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="dataiLabel" destination="XW0-qX-6aq" id="JA1-f2-8lI"/>
                 <outlet property="headImage" destination="cgy-Tj-HQW" id="exn-nP-gJf"/>
+                <outlet property="nameLabel" destination="8kQ-eq-yVl" id="LKo-Ec-RtN"/>
             </connections>
             <point key="canvasLocation" x="246" y="242"/>
         </tableViewCell>

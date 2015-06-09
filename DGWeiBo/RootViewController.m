@@ -11,12 +11,19 @@
 #import "HeadTableViewCell.h"
 #import "RootTableViewCell.h"
 #import "BaseNavigationController.h"
+#import "AppDelegate.h"
+#import "DGPackageData.h"
+#import "NewestWeiBoModel.h"
+#import "UserInfoModel.h"
+
 
 @interface RootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong,nonatomic)NSArray * array;
+
+@property(strong,nonatomic)NSMutableArray * userArray;
 
 @end
 
@@ -42,6 +49,18 @@
     ViewController * viewCont = (ViewController *)navigation.topViewController;
     
     _homeNavigation = navigation;
+    
+    AppDelegate * appDelegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [DGPackageData gainUserInfoID:appDelegate.wbCurrentUserID responseObject:^(id responseObject) {
+        
+        ex_userInfo = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
     
     
@@ -95,8 +114,10 @@
 //添加hearView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return self.array.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row==0) {
         static NSString*stringcell=@"HeadTableViewCell";
@@ -105,6 +126,17 @@
             cell = [[[NSBundle mainBundle]loadNibNamed:stringcell owner:self options:nil]lastObject];
             cell.backgroundColor = [UIColor colorWithRed:182.0f/255.0f green:33.0f/255.0f blue:90.0f/255.0f alpha:1.0f];
         }
+        
+        NSURL * url = [NSURL URLWithString:ex_userInfo.profile_image_url];
+        
+        NSData * data = [NSData dataWithContentsOfURL:url];
+        
+        cell.headImage.image = [UIImage imageWithData:data];
+        
+        cell.nameLabel.text = ex_userInfo.screen_name;
+        
+        cell.dataiLabel.text = ex_userInfo.weihao;
+        
         return cell;
     }else{
         static NSString * stringcell=@"RootTableViewCell";
