@@ -13,6 +13,7 @@
 #import "NewestWeiBoModel.h"
 #import "HTTPRequest.h"
 #import "PullRefreshTableView.h"
+#import "DGPackageData.h"
 
 @interface PersonalMessageViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>{
 
@@ -26,7 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
-@property (weak, nonatomic) IBOutlet UITableView  * weiboTableView;
+@property (weak, nonatomic) IBOutlet PullRefreshTableView  * weiboTableView;
 
 @property(strong,nonatomic)NSMutableArray *arr1;
 
@@ -84,6 +85,21 @@
     
     if (self.number) {
         
+        
+        UserInfoModel * userInfo = self.weibo.user;
+        
+        NSURL * url = [NSURL URLWithString:userInfo.profile_image_url];
+        
+        NSData * data = [NSData dataWithContentsOfURL:url];
+        
+        self.PersonalMessageHead.headimage.image = [UIImage imageWithData:data];
+        
+        self.PersonalMessageHead.nameLabel.text = userInfo.screen_name;
+        
+        self.PersonalMessageHead.attentionNumber.text= userInfo.friends_count;
+        
+        self.PersonalMessageHead.fansNumber.text = userInfo.statuses_count;
+        
     }else{
         
         self.btnView.hidden = YES;
@@ -138,8 +154,16 @@
         x = x + 80;
     }
 
+    [DGPackageData attentionWeiboWithCount:@"20" page:@"1" feature:@"0" responseObject:^(id responseObject) {
+        
+        self.weibo = responseObject;
+        
+        [self.weiboTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
-
 //右按钮
 -(void)dotAction{
 
@@ -179,6 +203,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.array.count;
+    
 }
 
 
@@ -205,8 +230,20 @@
     UserInfoModel * userInfo = weibo.user;
     
     cell.userNameLabel.text = userInfo.screen_name;
+    
+    [HTTPRequest downLoadImage:userInfo.avatar_large qualityRatio:1.0 pixelRatio:1.0 responseObject:^(id responseObject) {
+        cell.headerImageView.image = responseObject;
         
+    } failure:^(NSError *error, NSString *pathString) {
+        
+    }];
+    
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell * cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return CGRectGetHeight(cell.frame);
 }
 
 

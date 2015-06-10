@@ -15,6 +15,7 @@
 #import "DGPackageData.h"
 #import "NewestWeiBoModel.h"
 #import "UserInfoModel.h"
+#import "PersonalMessageViewController.h"
 
 
 @interface RootViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong,nonatomic)NSArray * array;
+
+@property(strong,nonatomic)NewestWeiBoesModel * weibo;
 
 @property(strong,nonatomic)NSMutableArray * userArray;
 
@@ -172,7 +175,7 @@
     
     if(indexPath.row==0){
         
-        [self performSegueWithIdentifier:@"toMessage" sender:self];
+        [self performSegueWithIdentifier:@"toMessage" sender:indexPath];
         [_homeNavigation menuSlider];
         
     }else if(indexPath.row==2){
@@ -183,14 +186,12 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

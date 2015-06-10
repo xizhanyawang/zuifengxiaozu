@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class NewestWeiBoModel;
+
 @interface PersonalMessageViewController : UIViewController
 
 @property (strong,nonatomic)NSMutableArray * array;
@@ -15,5 +17,7 @@
 @property BOOL number;
 
 @property (weak, nonatomic) IBOutlet UIView *btnView;
+
+@property (strong,nonatomic)NewestWeiBoModel * weibo;
 
 @end
