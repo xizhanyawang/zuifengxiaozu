@@ -14,6 +14,7 @@
 #import "HTTPRequest.h"
 #import "PullRefreshTableView.h"
 #import "DGPackageData.h"
+#import "JSONModel.h"
 
 @interface PersonalMessageViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>{
 
@@ -22,6 +23,7 @@
 
 @property(strong,nonatomic)PersonalMessageHead * PersonalMessageHead;
 
+@property (strong , nonatomic)NewestWeiBoesModel * newsWeiboes;
 
 @property (weak, nonatomic) IBOutlet UIView * sheetView;
 
@@ -67,6 +69,8 @@
     [super viewDidLoad];
     self.array = [NSMutableArray new];
     self.arr1 = [NSMutableArray new];
+    [_weiboTableView setPDelegate:self];//设置下拉刷新的委托对象
+    [_weiboTableView reloadDataFirst];//第一次刷新数据
     
     /*******************导航栏透明**************************/
 //    UIImage *image = [UIImage imageNamed:@"nav"];
@@ -164,6 +168,48 @@
         
     }];
 }
+
+/*下拉刷新触发方法*/
+- (void)upLoadDataWithTableView:(PullRefreshTableView *)tableView{
+
+        [DGPackageData attentionWeiboWithCount:@"20" page:@"1" feature:@"0" responseObject:^(id responseObject) {
+            
+            self.newsWeiboes = responseObject;
+            
+            self.weiboTableView.reachedTheEnd = NO;
+            
+            [self.weiboTableView reloadData];
+            
+        } failure:^(NSError *error) {
+            self.weiboTableView.isUpdataError = YES;
+            self.weiboTableView.labelCenter.text = @"授权过期了";
+            [self.weiboTableView reloadData];
+            
+        }];
+    
+    
+}
+
+/*上拉加载触发方法*/
+- (void)refreshDataWithTableView:(PullRefreshTableView *)tableView{
+
+        [DGPackageData attentionWeiboWithCount:@"40" page:@"1" feature:@"0" responseObject:^(id responseObject) {
+            
+            self.newsWeiboes = responseObject;
+            
+            self.weiboTableView.reachedTheEnd = NO;
+            
+            [self.weiboTableView reloadData];
+            
+        } failure:^(NSError *error) {
+            self.weiboTableView.isUpdataError = YES;
+            self.weiboTableView.labelCenter.text = @"授权过期了";
+            [self.weiboTableView reloadData];
+            
+        }];
+    
+}
+
 //右按钮
 -(void)dotAction{
 
@@ -199,9 +245,20 @@
 
 }
 
+//我们需要将视图拖动的事件返给PullRefreshTableView
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.weiboTableView pullScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.weiboTableView pullScrollViewWillBeginDragging:scrollView];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
+    self.array =(NSMutableArray *) self.newsWeiboes.statuses;
     return self.array.count;
     
 }

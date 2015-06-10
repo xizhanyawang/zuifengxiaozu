@@ -127,7 +127,6 @@ static NSOperationQueue * queue;
         }];
     }else{
         [DGPackageData attentionWeiboWithCount:@"20" page:@"1" feature:@"0" responseObject:^(id responseObject) {
-            
             self.newsWeiboes = responseObject;
             
             self.weiboTableView.reachedTheEnd = NO;
@@ -169,7 +168,6 @@ static NSOperationQueue * queue;
         }];
     }else{
         [DGPackageData attentionWeiboWithCount:@"40" page:@"1" feature:@"0" responseObject:^(id responseObject) {
-            
             self.newsWeiboes = responseObject;
             
             self.weiboTableView.reachedTheEnd = NO;
@@ -240,7 +238,6 @@ static NSOperationQueue * queue;
     } failure:^(NSError *error, NSString *pathString) {
         
     }];
-    
     cell.diaoyong=self;
     if ([self.arr1 containsObject:indexPath]) {
         [cell.btn setImage:[UIImage
