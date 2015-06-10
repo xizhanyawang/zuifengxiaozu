@@ -73,12 +73,12 @@
                         <segue destination="dsy-gi-SUJ" kind="push" id="gYs-lA-mzD"/>
                         <segue destination="lJ9-z2-rYh" kind="push" id="JXL-n4-ih7"/>
                         <segue destination="oEB-nV-9UH" kind="push" identifier="comment" id="fdu-0B-PdH"/>
-                        <segue destination="Ljw-uN-4IG" kind="push" id="umo-md-O7h"/>
+                        <segue destination="IqU-iQ-rFM" kind="showDetail" identifier="pushImage" id="nrS-sO-NMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-773" y="2098"/>
+            <point key="canvasLocation" x="-698" y="2098"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zMD-hU-pXT">
@@ -511,6 +511,36 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.065751935959999994" blue="0.1622692882" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4OJ-hG-sQU">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuF-VD-m2h">
+                                        <rect key="frame" x="35" y="8" width="53" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="已关注">
+                                            <color key="titleColor" red="0.1778746547" green="0.1778746547" blue="0.1778746547" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stf-0E-1Qm">
+                                        <rect key="frame" x="130" y="8" width="53" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="聊天">
+                                            <color key="titleColor" red="0.1778746547" green="0.1778746547" blue="0.1778746547" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-pX-f4B">
+                                        <rect key="frame" x="229" y="8" width="53" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="文章">
+                                            <color key="titleColor" red="0.1778746547" green="0.1778746547" blue="0.1778746547" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -530,14 +560,15 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="btnView" destination="4OJ-hG-sQU" id="Fyt-1U-49c"/>
                         <outlet property="myScrollView" destination="SVU-6b-Xn0" id="8hU-gf-yhk"/>
                         <outlet property="sheetView" destination="ltO-Ts-ATt" id="0sk-L2-9xq"/>
-                        <outlet property="tableView" destination="ViQ-fY-jEh" id="QeI-md-3Im"/>
+                        <outlet property="weiboTableView" destination="ViQ-fY-jEh" id="TRe-xU-QSc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JX6-fk-DvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="1382"/>
+            <point key="canvasLocation" x="926" y="1382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ryo-Bl-afQ">
@@ -624,6 +655,6 @@
         <image name="left.png" width="32" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="umo-md-O7h"/>
+        <segue reference="nrS-sO-NMh"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -135,7 +135,7 @@
         
         cell.nameLabel.text = ex_userInfo.screen_name;
         
-        cell.dataiLabel.text = ex_userInfo.weihao;
+        cell.dataiLabel.text = ex_userInfo.online_status;
         
         return cell;
     }else{

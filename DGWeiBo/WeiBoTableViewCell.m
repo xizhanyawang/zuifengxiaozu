@@ -32,6 +32,16 @@ void * _contentContext;
     
     _headerImageView.layer.masksToBounds = YES;
     _headerImageView.layer.cornerRadius = CGRectGetHeight(_headerImageView.frame)/2.0f;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGes:)];
+    self.headerImageView.userInteractionEnabled = YES;
+    [self.headerImageView addGestureRecognizer:tap];
+    
+}
+
+-(void)tapGes:tap{
+
+    [self.diaoyong pushImage:self];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -129,7 +139,8 @@ void * _contentContext;
 
 }
 - (IBAction)commentAction:(id)sender {
-    [self.diaoyong commentAction:nil];
+    
+    [self.diaoyong commentAction:self];
 }
 
 @end

@@ -22,6 +22,8 @@
 #import "BaseNavigationController.h"
 #import "WeiBoTableViewCell.h"
 #import "CommentViewController.h"
+#import "PersonalMessageViewController.h"
+
 @interface ViewController ()<PullRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -278,18 +280,25 @@ static NSOperationQueue * queue;
      NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
     [self performSegueWithIdentifier:@"comment" sender:indexPath];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)pushImage:(WeiBoTableViewCell *)cell{
+
+    NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    [self performSegueWithIdentifier:@"pushImage" sender:indexPath];
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"comment"]) {
         CommentViewController * comment=segue.destinationViewController;
-        NSIndexPath * indexPath=sender;
+        NSIndexPath * indexPath = sender;
         comment.weibo=self.array[indexPath.row];
-        
-    }
+    }else if([segue.identifier isEqualToString:@"pushImage"]){
     
+        NSIndexPath * indexpath = sender;
+        UINavigationController * navigationCont = segue.destinationViewController;
+        PersonalMessageViewController * personalMessage =(PersonalMessageViewController *) navigationCont.topViewController;
+        personalMessage.array = self.array[indexpath.row];
+        personalMessage.number = YES;
+    }
 }
 
 @end

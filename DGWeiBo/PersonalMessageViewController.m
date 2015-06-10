@@ -26,12 +26,9 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
-@property (weak, nonatomic) IBOutlet PullRefreshTableView *weiboTableView;
+@property (weak, nonatomic) IBOutlet UITableView  * weiboTableView;
 
 @property(strong,nonatomic)NSMutableArray *arr1;
-
-
-@property (strong , nonatomic)NewestWeiBoesModel * newsWeiboes;
 
 @end
 
@@ -83,15 +80,32 @@
     UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 160)];
     [imageView setImage:[UIImage imageNamed:@"13.jpg"]];
     
-    _header = [DGExpandheader expandWithScrollView:self.tableView expandView:imageView];
+    _header = [DGExpandheader expandWithScrollView:self.weiboTableView expandView:imageView];
     
-    self.PersonalMessageHead.headimage.image = [UIImage imageNamed:@"15.jpg"];
+    if (self.number) {
+        
+    }else{
+        
+        self.btnView.hidden = YES;
+        
+        NSURL * url = [NSURL URLWithString:ex_userInfo.profile_image_url];
+        
+        NSData * data = [NSData dataWithContentsOfURL:url];
+        
+        self.PersonalMessageHead.headimage.image = [UIImage imageWithData:data];
+        
+        self.PersonalMessageHead.nameLabel.text = ex_userInfo.screen_name;
+        
+        self.PersonalMessageHead.attentionNumber.text= ex_userInfo.friends_count;
+        
+        self.PersonalMessageHead.fansNumber.text = ex_userInfo.statuses_count;
+    }
     
     self.PersonalMessageHead.headimage.layer.masksToBounds = YES;
     
     self.PersonalMessageHead.headimage.layer.cornerRadius = CGRectGetHeight(self.PersonalMessageHead.headimage.frame)/2;
     
-    self.tableView.tableHeaderView = self.PersonalMessageHead;
+    self.weiboTableView.tableHeaderView = self.PersonalMessageHead;
     
     /********************右按钮***************************/
     
@@ -118,7 +132,8 @@
     
     for (int i=0; i<7; i++) {
         UIButton * bnt = [[UIButton alloc]initWithFrame:CGRectMake(8+x, 10, 60, 60)];
-        [bnt setImage:[UIImage imageNamed:@"1.jpg"] forState:UIControlStateNormal];
+        NSString * string = [NSString stringWithFormat:@"%d.jpg",i+1];
+        [bnt setImage:[UIImage imageNamed:string] forState:UIControlStateNormal];
         [self.myScrollView addSubview:bnt];
         x = x + 80;
     }
@@ -163,7 +178,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.array.count;
 }
 
 
@@ -176,6 +191,21 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
     }
     
+    NewestWeiBoModel * weibo = self.array[indexPath.row];
+    
+    cell.contentTextLabel.text = weibo.text;
+    [cell.commentsCountLabel setTitle:[NSString stringWithFormat:@"评论:%ld",weibo.comments_count] forState:UIControlStateNormal];
+    [cell.repostsCountLabel setTitle:[NSString stringWithFormat:@"转发:%ld",weibo.reposts_count] forState:UIControlStateNormal];
+    cell.attitudesCountLabel.text =[NSString stringWithFormat:@"%ld",weibo.attitudes_count];
+    
+    cell.timeString = weibo.created_at;
+    
+    cell.imageUrls = weibo.pic_urls;
+    
+    UserInfoModel * userInfo = weibo.user;
+    
+    cell.userNameLabel.text = userInfo.screen_name;
+        
     return cell;
 }
 

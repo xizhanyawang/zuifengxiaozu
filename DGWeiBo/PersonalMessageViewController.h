@@ -10,8 +10,10 @@
 
 @interface PersonalMessageViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong,nonatomic)NSMutableArray * array;
+
+@property BOOL number;
+
+@property (weak, nonatomic) IBOutlet UIView *btnView;
 
 @end
