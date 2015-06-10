@@ -83,7 +83,7 @@
     /********************列表头部***************************/
     
     UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 160)];
-    [imageView setImage:[UIImage imageNamed:@"13.jpg"]];
+    [imageView setImage:[UIImage imageNamed:@"background.jpg"]];
     
     _header = [DGExpandheader expandWithScrollView:self.weiboTableView expandView:imageView];
     

@@ -9,8 +9,11 @@
 #import "RevisePersonalViewController.h"
 #import "UserNameTableViewCell.h"
 #import "ReviseTableViewCell.h"
+#import "DGJSONModel.h"
 
 @interface RevisePersonalViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property(strong,nonatomic)NSMutableArray * array;
 
 @end
 
@@ -23,17 +26,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSDictionary * dic1 =@{@"title":@"登录名",
+                           @"name":@"13548908931"};
+    
+    NSDictionary * dic2 = @{@"title":@"昵称",
+                            @"screen_name":ex_userInfo.screen_name};
+    
+    NSDictionary * dic4 = @{@"title":@"性别",
+                            @"sex":@"女"};
+    
+    NSDictionary * dic5 = @{@"title":@"所在地",
+                            @"city":@"湖南长沙"};
+    
+    self.array = [NSMutableArray arrayWithObjects:dic1,dic2,dic4,dic5,nil];
 }
 
 #pragma mark -UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.array.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSDictionary * dic = self.array[indexPath.row];
     if(indexPath.row==0){
     
         static NSString * identString = @"UserNameTableViewCell";
@@ -42,17 +59,45 @@
             cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
         }
 
+        cell.userNameLabel.text = dic[@"title"];
+        
+        cell.nameLabel.text =dic[@"name"];
+        
         return cell;
         
-    }else{
+    }else if(indexPath.row==1){
     
     static NSString * identString = @"ReviseTableViewCell";
     ReviseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identString];
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
     }
-    
+        cell.nameLabel.text = dic[@"title"];
+        cell.amendText.text = dic[@"screen_name"];
     return cell;
+        
+    }else if(indexPath.row==2){
+    
+        static NSString * identString = @"ReviseTableViewCell";
+        ReviseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identString];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
+        }
+        
+        cell.nameLabel.text = dic[@"title"];
+        cell.amendText.text = dic[@"sex"];
+        return cell;
+    }else{
+    
+        static NSString * identString = @"ReviseTableViewCell";
+        ReviseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identString];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
+        }
+        
+        cell.nameLabel.text = dic[@"title"];
+        cell.amendText.text = dic[@"city"];
+        return cell;
     }
 }
 

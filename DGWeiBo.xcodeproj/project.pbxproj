@@ -44,6 +44,7 @@
 		1872B6741B26836A00348FD8 /* mm4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6701B26836A00348FD8 /* mm4.png */; };
 		1872B6771B2684C400348FD8 /* mm5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6751B2684C400348FD8 /* mm5.png */; };
 		1872B6781B2684C400348FD8 /* mm6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6761B2684C400348FD8 /* mm6.png */; };
+		1883BFB51B28202500A46D27 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1883BFB41B28202500A46D27 /* background.jpg */; };
 		48732D681B15674F00BC433E /* DGPackageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 48732D671B15674F00BC433E /* DGPackageData.m */; };
 		4875F6A31B1411BA004AECD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6A21B1411BA004AECD4 /* main.m */; };
 		4875F6A61B1411BA004AECD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4875F6A51B1411BA004AECD4 /* AppDelegate.m */; };
@@ -158,6 +159,7 @@
 		1872B6701B26836A00348FD8 /* mm4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mm4.png; sourceTree = "<group>"; };
 		1872B6751B2684C400348FD8 /* mm5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mm5.png; sourceTree = "<group>"; };
 		1872B6761B2684C400348FD8 /* mm6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mm6.png; sourceTree = "<group>"; };
+		1883BFB41B28202500A46D27 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		48732D661B15674F00BC433E /* DGPackageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGPackageData.h; sourceTree = "<group>"; };
 		48732D671B15674F00BC433E /* DGPackageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGPackageData.m; sourceTree = "<group>"; };
 		4875F69D1B1411BA004AECD4 /* DGWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +318,7 @@
 		1845BBAD1B1EBBF500F468D3 /* 网址图 */ = {
 			isa = PBXGroup;
 			children = (
+				1883BFB41B28202500A46D27 /* background.jpg */,
 				1872B66D1B26836A00348FD8 /* mm1.png */,
 				1872B66E1B26836A00348FD8 /* mm2.png */,
 				1872B66F1B26836A00348FD8 /* mm3.png */,
@@ -852,6 +855,7 @@
 				1845BBBE1B1EBBF500F468D3 /* 1.jpg in Resources */,
 				1845BBCC1B1EBBF500F468D3 /* 9.jpg in Resources */,
 				1845BBC11B1EBBF500F468D3 /* 12.jpg in Resources */,
+				1883BFB51B28202500A46D27 /* background.jpg in Resources */,
 				18707D9D1B21467D00F7002F /* ReviseTableViewCell.xib in Resources */,
 				4875F6B11B1411BA004AECD4 /* LaunchScreen.xib in Resources */,
 				1872B6781B2684C400348FD8 /* mm6.png in Resources */,
