@@ -175,13 +175,16 @@
     
     if(indexPath.row==0){
         
-        [self performSegueWithIdentifier:@"toMessage" sender:indexPath];
+        [self performSegueWithIdentifier:@"toMessage" sender:nil];
         [_homeNavigation menuSlider];
         
     }else if(indexPath.row==2){
     
-        [self performSegueWithIdentifier:@"toEdit" sender:self];
+        [self performSegueWithIdentifier:@"toEdit" sender:nil];
         [_homeNavigation menuSlider];
+    }else if(indexPath.row==3){
+    
+        [self performSegueWithIdentifier:@"toAttention" sender:nil];
     }
 }
 

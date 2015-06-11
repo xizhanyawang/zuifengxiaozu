@@ -172,7 +172,9 @@
 /*下拉刷新触发方法*/
 - (void)upLoadDataWithTableView:(PullRefreshTableView *)tableView{
 
-        [DGPackageData attentionWeiboWithCount:@"20" page:@"1" feature:@"0" responseObject:^(id responseObject) {
+    if(self.number){
+        UserInfoModel * userInfo = self.weibo.user;
+        [DGPackageData userSendeWeiBoWithID:userInfo.idstr page:@"1" responseObject:^(id responseObject) {
             
             self.newsWeiboes = responseObject;
             
@@ -181,19 +183,54 @@
             [self.weiboTableView reloadData];
             
         } failure:^(NSError *error) {
+            
             self.weiboTableView.isUpdataError = YES;
             self.weiboTableView.labelCenter.text = @"授权过期了";
             [self.weiboTableView reloadData];
-            
         }];
+
+        
+    }else{
     
-    
+        [DGPackageData userSendeWeiBoWithID:ex_userInfo.idstr page:@"1" responseObject:^(id responseObject) {
+            
+            self.newsWeiboes = responseObject;
+            
+            self.weiboTableView.reachedTheEnd = NO;
+            
+            [self.weiboTableView reloadData];
+            
+        } failure:^(NSError *error) {
+            
+            self.weiboTableView.isUpdataError = YES;
+            self.weiboTableView.labelCenter.text = @"授权过期了";
+            [self.weiboTableView reloadData];
+        }];
+    }
 }
 
 /*上拉加载触发方法*/
 - (void)refreshDataWithTableView:(PullRefreshTableView *)tableView{
 
-        [DGPackageData attentionWeiboWithCount:@"40" page:@"1" feature:@"0" responseObject:^(id responseObject) {
+    if(self.number){
+    UserInfoModel * userInfo = self.weibo.user;
+    [DGPackageData userSendeWeiBoWithID:userInfo.idstr page:@"1" responseObject:^(id responseObject) {
+        
+        self.newsWeiboes = responseObject;
+        
+        self.weiboTableView.reachedTheEnd = NO;
+        
+        [self.weiboTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+        self.weiboTableView.isUpdataError = YES;
+        self.weiboTableView.labelCenter.text = @"授权过期了";
+        [self.weiboTableView reloadData];
+    }];
+    }else{
+    
+        [DGPackageData userSendeWeiBoWithID:ex_userInfo.idstr page:@"1" responseObject:^(id responseObject) {
             
             self.newsWeiboes = responseObject;
             
@@ -202,12 +239,12 @@
             [self.weiboTableView reloadData];
             
         } failure:^(NSError *error) {
+            
             self.weiboTableView.isUpdataError = YES;
             self.weiboTableView.labelCenter.text = @"授权过期了";
             [self.weiboTableView reloadData];
-            
         }];
-    
+    }
 }
 
 //右按钮
@@ -258,8 +295,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    self.array =(NSMutableArray *) self.newsWeiboes.statuses;
-    return self.array.count;
+    return self.newsWeiboes.statuses.count;
     
 }
 
@@ -273,7 +309,7 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:identString owner:self options:nil]lastObject];
     }
     
-    NewestWeiBoModel * weibo = self.array[indexPath.row];
+    NewestWeiBoModel * weibo = self.newsWeiboes.statuses[indexPath.row];
     
     cell.contentTextLabel.text = weibo.text;
     [cell.commentsCountLabel setTitle:[NSString stringWithFormat:@"评论:%ld",weibo.comments_count] forState:UIControlStateNormal];

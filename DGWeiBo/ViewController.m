@@ -74,7 +74,6 @@
         }];
         [self.weiboTableView reloadData];
         
-        
     }
     
 }
@@ -180,12 +179,7 @@ static NSOperationQueue * queue;
             [self.weiboTableView reloadData];
             
         }];
-        
     }
-    
-    
-
-
 }
 
 //我们需要将视图拖动的事件返给PullRefreshTableView

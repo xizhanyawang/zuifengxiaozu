@@ -252,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="-1090" y="2843"/>
         </scene>
-        <!--View Controller-->
+        <!--全部关注-->
         <scene sceneID="IlB-PG-KI2">
             <objects>
-                <viewController id="Smc-iN-Om7" sceneMemberID="viewController">
+                <viewController id="Smc-iN-Om7" customClass="AttentionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d22-RI-f0d"/>
                         <viewControllerLayoutGuide type="bottom" id="wiy-S0-rlJ"/>
@@ -263,10 +263,23 @@
                     <view key="view" contentMode="scaleToFill" id="Q74-6r-hv1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yt0-K4-yIk">
+                                <rect key="frame" x="0.0" y="-8" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Smc-iN-Om7" id="xAr-l1-3Nb"/>
+                                    <outlet property="delegate" destination="Smc-iN-Om7" id="x4x-30-lKe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nia-c1-6dA"/>
+                    <navigationItem key="navigationItem" title="全部关注" id="nia-c1-6dA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="yt0-K4-yIk" id="XTn-nY-cry"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tcf-iE-SAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,7 +313,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="TdO-RP-EsP" id="mKc-h7-k3K"/>
-                        <segue destination="xb9-i7-3k7" kind="push" id="uuX-7H-Rzf"/>
+                        <segue destination="xb9-i7-3k7" kind="showDetail" identifier="toAttention" id="uuX-7H-Rzf"/>
                         <segue destination="7ZQ-Er-hAm" kind="show" identifier="toEdit" id="jVw-yC-QVN"/>
                         <segue destination="exg-Of-jfc" kind="push" id="pDY-J0-Akn"/>
                         <segue destination="JLl-fv-6k3" kind="push" id="upe-TL-xK0"/>

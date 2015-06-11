@@ -153,4 +153,19 @@ typedef void(^requestData)(id responseObject);
 
 +(void)gainUserInfoID:(NSString *)UserId responseObject:(requestData)blockObject failure:(failureError)failure;
 
+/*
+ //获取用户的关注列表
+ 
+ * source: 采用OAuth授权方式不需要此参数，其他授权方式为必填参数，数值为应用的AppKey。
+ 
+ * access_token: 采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+ 
+ * uid: 需要查询的用户ID。
+ 
+ * screen_name: 需要查询的用户昵称。
+
+ */
+
++(void)friendshipsCount:(NSString *)count responseObject:(requestData)blockObject failure:(failureError)failure;
+
 @end

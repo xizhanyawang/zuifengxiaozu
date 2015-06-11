@@ -218,7 +218,28 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
+}
 
+//获取用户的关注列表
++(void)friendshipsCount:(NSString *)count responseObject:(requestData)blockObject failure:(failureError)failure{
+
+    NSDictionary * dic = @{@"source":kAppKey,
+                           @"access_token":source_token,
+                           @"count":count
+                           };
+    NSString * urlstring = @"friendships/friends.json";
+    [HTTPRequest packageDatas:dic urlType:urlstring httpMethod:HTTPMethodTypeGet responseObject:^(id responseObject) {
+        NSError * error;
+        UserInfoModel * friendships = [[UserInfoModel alloc]initWithString:responseObject error:&error];
+        if (error) {
+            NSLog(@"错误%@",error);
+        }else{
+        
+            blockObject(friendships);
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 
